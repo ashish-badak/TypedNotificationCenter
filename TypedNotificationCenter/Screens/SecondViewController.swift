@@ -29,7 +29,7 @@ class SecondViewController: UIViewController {
     }
     
     func setupObservers() {
-        NotificationCenter.default.addObserver(name: .theLongNightNotification) { [weak self] (notificationPayload) in
+        NotificationCenter.default.addObserver(name: .theLongNightNotification) { [weak self] _ in
             self?.view.backgroundColor = .black
         }
     }

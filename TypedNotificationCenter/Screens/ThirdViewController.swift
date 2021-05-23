@@ -49,8 +49,8 @@ class ThirdViewController: UIViewController {
     func setupObservers() {
         NotificationCenter.default.addObserver(
             name: .theLongNightNotification,
-            forType: LongNightNotificationPayload.self
-        ) { [weak self] (notificationPayload) in
+            forType: Notification.self
+        ) { [weak self] _ in
             guard let self = self else { return }
             
             self.view.backgroundColor = .black
@@ -64,9 +64,6 @@ class ThirdViewController: UIViewController {
             payload: AchievementNotificationPayload(achievement: .achievedEverything)
         )
         
-        NotificationCenter.default.post(
-            name: .theLongNightNotification,
-            payload: LongNightNotificationPayload(hasNightArrived: true)
-        )
+        NotificationCenter.default.post(name: .theLongNightNotification, payload: nil)
     }
 }

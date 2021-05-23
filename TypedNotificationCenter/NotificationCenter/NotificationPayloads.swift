@@ -29,10 +29,6 @@ extension Notification: NotificationPayload {
     }
 }
 
-struct LongNightNotificationPayload: NotificationPayload {
-    var hasNightArrived: Bool
-}
-
 enum Achievement {
     case becameLordCommander
     case faughtAtTheGreatWar
