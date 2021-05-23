@@ -14,6 +14,8 @@ protocol NotificationPayload {
 
 extension NotificationPayload {
     init?(_ notification: Notification) {
+        
+        /// - Note: Setting data in "value" key while posting notification, so extracting in the same way here.
         if let userInfo: [AnyHashable: Any] = notification.userInfo,
            let notificationPayload: Self = userInfo["value"] as? Self {
             self = notificationPayload
@@ -23,6 +25,7 @@ extension NotificationPayload {
     }
 }
 
+/// - NOTE: Added this extension so that notification observer callback which do not need any data can expect original `Notification` object back as it is.
 extension Notification: NotificationPayload {
     init?(_ notification: Notification) {
         self = notification
