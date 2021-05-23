@@ -1,8 +1,8 @@
 # TypedNotificationCenter
 Notification Center Wrapper which allows us to deal with typed data instead of just Dictionary
 
-**Observe notification as:
-**
+## Observe notification as:
+
 1. When you expect data:
 
 ```
@@ -29,8 +29,7 @@ TypedNotificationCenter.addObserver(name: .theLongNightNotification) {
 ```
 
 
-**Post notification as:
-**
+## Post notification as:
 
 1. When you have data to be passed:
 ```
@@ -49,7 +48,7 @@ TypedNotificationCenter.post(
 )
 ```
 
-
+## NotificationPayload conformance
 When you want to pass your object as payload make sure it is conforming to *NotificationPayload* as:
 ```
 struct AchievementNotificationPayload: NotificationPayload {
