@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E63C4B32655213200A1F2DE /* CustomNotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63C4B22655213200A1F2DE /* CustomNotificationNames.swift */; };
 		1E63C4B62655217600A1F2DE /* NotificationPayloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63C4B52655217600A1F2DE /* NotificationPayloads.swift */; };
-		1E63C4BC265522BF00A1F2DE /* NotificationBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63C4BB265522BF00A1F2DE /* NotificationBox.swift */; };
 		1E63C4BF265523FB00A1F2DE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63C4BE265523FB00A1F2DE /* Utils.swift */; };
 		1EB7DB142655167E0056E109 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7DB132655167E0056E109 /* AppDelegate.swift */; };
 		1EB7DB182655167F0056E109 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7DB172655167F0056E109 /* MainViewController.swift */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		1E63C4B22655213200A1F2DE /* CustomNotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotificationNames.swift; sourceTree = "<group>"; };
 		1E63C4B52655217600A1F2DE /* NotificationPayloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayloads.swift; sourceTree = "<group>"; };
-		1E63C4BB265522BF00A1F2DE /* NotificationBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBox.swift; sourceTree = "<group>"; };
 		1E63C4BE265523FB00A1F2DE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1EB7DB102655167E0056E109 /* TypedNotificationCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypedNotificationCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB7DB132655167E0056E109 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				1EB7DB34265518B30056E109 /* NotificationCenterExtension.swift */,
 				1E63C4B22655213200A1F2DE /* CustomNotificationNames.swift */,
 				1E63C4B52655217600A1F2DE /* NotificationPayloads.swift */,
-				1E63C4BB265522BF00A1F2DE /* NotificationBox.swift */,
 				7598A4A6265A4898008126F2 /* NotificationManager.swift */,
 			);
 			path = NotificationCenter;
@@ -178,7 +175,6 @@
 				1EB7DB2C2655186E0056E109 /* FirstViewController.swift in Sources */,
 				1EB7DB35265518B30056E109 /* NotificationCenterExtension.swift in Sources */,
 				7598A4A7265A4898008126F2 /* NotificationManager.swift in Sources */,
-				1E63C4BC265522BF00A1F2DE /* NotificationBox.swift in Sources */,
 				1E63C4BF265523FB00A1F2DE /* Utils.swift in Sources */,
 				1EB7DB32265518860056E109 /* ThirdViewController.swift in Sources */,
 				1E63C4B32655213200A1F2DE /* CustomNotificationNames.swift in Sources */,
