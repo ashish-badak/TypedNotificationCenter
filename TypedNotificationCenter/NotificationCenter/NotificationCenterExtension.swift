@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Note: Made this `fileprivate` as only `TypedNotificationCenter` is supposed to use these extension functions.
+/// - Note: Made this `fileprivate` as only `TypedNotificationCenter` is supposed to use these extension functions.
 ///     If one wish to create custom  `NotificationCenter` object and use these functions then `fileprivate` keyword can be removed.
 fileprivate extension NotificationCenter {
     
