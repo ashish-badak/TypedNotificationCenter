@@ -15,9 +15,8 @@ final class SimpleNotificationManager: NotificationManager {
     var whenTheLongNightArrives: ((Notification?) -> Void)?
     
     func addObservers() {
-        NotificationCenter.default.addObserver(
-            descriptor: NotificationDescriptor<Notification>(name: .theLongNightNotification)
-        ) { [weak self] (notificationPayload) in
+        NotificationCenter.default.addObserver(name: .theLongNightNotification, forType: Notification.self) {
+            [weak self] notificationPayload in
             self?.whenTheLongNightArrives?(notificationPayload)
         }
     }

@@ -9,16 +9,30 @@ import Foundation
 
 extension NotificationCenter {
     @discardableResult func addObserver<N: NotificationPayload> (
-        descriptor: NotificationDescriptor<N>,
+        name: Notification.Name,
+        forType: N.Type,
         then callback: @escaping (N?) -> Void
     ) -> NSObjectProtocol {
         addObserver(
-            forName: descriptor.name,
+            forName: name,
             object: nil,
             queue: .current
         ) { notification in
-            let payload = descriptor.convert(notification)
+            let payload = N(notification)
             callback(payload)
+        }
+    }
+    
+    @discardableResult func addObserver(
+        name: Notification.Name,
+        then callback: @escaping (Notification) -> Void
+    ) -> NSObjectProtocol {
+        addObserver(
+            forName: name,
+            object: nil,
+            queue: .current
+        ) { notification in
+            callback(notification)
         }
     }
     

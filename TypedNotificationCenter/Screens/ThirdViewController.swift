@@ -30,7 +30,8 @@ class ThirdViewController: UIViewController {
     
     func setupObservers() {
         NotificationCenter.default.addObserver(
-            descriptor: NotificationDescriptor<LongNightNotificationPayload>(name: .theLongNightNotification)
+            name: .theLongNightNotification,
+            forType: LongNightNotificationPayload.self
         ) { [weak self] (notificationPayload) in
             self?.view.backgroundColor = .black
         }
