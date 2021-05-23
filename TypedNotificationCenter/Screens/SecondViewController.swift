@@ -34,7 +34,6 @@ class SecondViewController: UIViewController {
                 self?.view.backgroundColor = .black
             }
         }
-        
     }
     
     @objc func goNext() {
