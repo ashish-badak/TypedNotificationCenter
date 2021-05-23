@@ -7,15 +7,6 @@
 
 import Foundation
 
-
-struct NotificationDescriptor<N: NotificationPayload> {
-    let name: Notification.Name
-    func convert(_ notification: Notification) -> N? {
-        N(notification)
-    }
-}
-
-
 /// Each notification data object should conform to this protocol, to make it easy to map Notification to intended data type
 protocol NotificationPayload {
     init?(_ notification: Notification)
