@@ -8,7 +8,7 @@
 import UIKit
 
 final class ThirdViewController: UIViewController {
-    let changeThemeButton = UIButton.getButton(title: "Explore The Long Night")
+    private let changeThemeButton = UIButton.getButton(title: "Explore The Long Night")
     
     private var responseLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -34,7 +34,7 @@ final class ThirdViewController: UIViewController {
         changeThemeButton.addTarget(self, action: #selector(changeTheme), for: .touchUpInside)
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         stackView.addArrangedSubview(changeThemeButton)
         stackView.addArrangedSubview(responseLabel)
@@ -46,7 +46,7 @@ final class ThirdViewController: UIViewController {
         ])
     }
     
-    func setupObservers() {
+    private func setupObservers() {
         TypedNotificationCenter.addObserver(
             name: .theLongNightNotification,
             forType: Notification.self
@@ -60,7 +60,7 @@ final class ThirdViewController: UIViewController {
         }
     }
     
-    @objc func changeTheme() {
+    @objc private func changeTheme() {
         TypedNotificationCenter.post(
             name: .achievementNotification,
             payload: AchievementNotificationPayload(achievement: .achievedEverything)
