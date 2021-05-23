@@ -10,8 +10,6 @@ import UIKit
 class SecondViewController: UIViewController {
     let nextButton = UIButton.getButton(title: "Kill Dany")
     
-    let notificationBox = NotificationBox()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Kings Landing"
@@ -36,8 +34,6 @@ class SecondViewController: UIViewController {
         ) { [weak self] (notificationPayload) in
             self?.view.backgroundColor = .black
         }
-        
-        notificationBox.addObserver(themeChangeObserver, forKey: .theLongNightNotification)
     }
     
     @objc func goNext() {

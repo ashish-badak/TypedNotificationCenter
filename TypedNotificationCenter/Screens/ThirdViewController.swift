@@ -10,7 +10,6 @@ import UIKit
 class ThirdViewController: UIViewController {
     let changeThemeButton = UIButton.getButton(title: "Explore The Long Night")
     
-    let notificationBox = NotificationBox()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +29,11 @@ class ThirdViewController: UIViewController {
     }
     
     func setupObservers() {
-        let themeChangeObserver = NotificationCenter.default.addObserver(
+        NotificationCenter.default.addObserver(
             descriptor: NotificationDescriptor<LongNightNotificationPayload>(name: .theLongNightNotification)
         ) { [weak self] (notificationPayload) in
             self?.view.backgroundColor = .black
         }
-        
-        notificationBox.addObserver(themeChangeObserver, forKey: .theLongNightNotification)
     }
     
     @objc func changeTheme() {
