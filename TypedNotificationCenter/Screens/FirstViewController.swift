@@ -38,6 +38,11 @@ class FirstViewController: UIViewController {
     }
     
     @objc func goNext() {
+        NotificationCenter.default.post(
+            name: .achievementNotification,
+            payload: AchievementNotificationPayload(achievement: .faughtAtTheGreatWar)
+        )
+        
         self.navigationController?.pushViewController(SecondViewController(), animated: true)
     }
 }

@@ -39,6 +39,11 @@ class ThirdViewController: UIViewController {
     
     @objc func changeTheme() {
         NotificationCenter.default.post(
+            name: .achievementNotification,
+            payload: AchievementNotificationPayload(achievement: .achievedEverything)
+        )
+        
+        NotificationCenter.default.post(
             name: .theLongNightNotification,
             payload: LongNightNotificationPayload(hasNightArrived: true)
         )
