@@ -9,9 +9,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
     let nextButton = UIButton.getButton(title: "Fight The Great War")
-    
-    let notificationManager = SimpleNotificationManager()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "The Wall"
@@ -31,8 +29,7 @@ class FirstViewController: UIViewController {
     }
     
     func setupObservers() {
-        notificationManager.addObservers()
-        notificationManager.whenTheLongNightArrives = { [weak self] (payload) in
+        NotificationCenter.default.addObserver(name: .theLongNightNotification) { [weak self] _ in
             UIView.animate(withDuration: 0.25) {
                 self?.view.backgroundColor = .black
             }
