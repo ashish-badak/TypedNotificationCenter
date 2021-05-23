@@ -11,7 +11,7 @@ protocol NotificationManager {
     func addObservers()
 }
 
-final class SimpleNotificationManager: NotificationManager {
+final class MainViewNotificationManager: NotificationManager {
     var whenTheLongNightArrives: ((Notification?) -> Void)?
     var whenAchieves: ((AchievementNotificationPayload) -> Void)?
     

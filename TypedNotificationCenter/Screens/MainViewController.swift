@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
         return stackView
     }()
     
-    let notificationManager = SimpleNotificationManager()
+    let notificationManager = MainViewNotificationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
