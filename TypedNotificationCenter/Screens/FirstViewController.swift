@@ -29,7 +29,7 @@ class FirstViewController: UIViewController {
     }
     
     func setupObservers() {
-        NotificationCenter.default.addObserver(name: .theLongNightNotification) { [weak self] _ in
+        TypedNotificationCenter.addObserver(name: .theLongNightNotification) { [weak self] _ in
             UIView.animate(withDuration: 0.25) {
                 self?.view.backgroundColor = .black
             }
@@ -37,7 +37,7 @@ class FirstViewController: UIViewController {
     }
     
     @objc func goNext() {
-        NotificationCenter.default.post(
+        TypedNotificationCenter.post(
             name: .achievementNotification,
             payload: AchievementNotificationPayload(achievement: .faughtAtTheGreatWar)
         )

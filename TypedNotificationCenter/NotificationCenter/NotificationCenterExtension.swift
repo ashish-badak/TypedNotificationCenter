@@ -7,16 +7,17 @@
 
 import Foundation
 
-extension NotificationCenter {
+fileprivate extension NotificationCenter {
     @discardableResult func addObserver<N: NotificationPayload> (
         name: Notification.Name,
         forType: N.Type,
+        queue: OperationQueue? = .current,
         then callback: @escaping (N?) -> Void
     ) -> NSObjectProtocol {
         addObserver(
             forName: name,
             object: nil,
-            queue: .current
+            queue: queue
         ) { notification in
             let payload = N(notification)
             callback(payload)
@@ -25,12 +26,13 @@ extension NotificationCenter {
     
     @discardableResult func addObserver(
         name: Notification.Name,
+        queue: OperationQueue? = .current,
         then callback: @escaping (Notification) -> Void
     ) -> NSObjectProtocol {
         addObserver(
             forName: name,
             object: nil,
-            queue: .current
+            queue: queue
         ) { notification in
             callback(notification)
         }
@@ -42,5 +44,34 @@ extension NotificationCenter {
         } else {
             post(name: name, object: nil, userInfo: nil)
         }
+    }
+}
+
+final class TypedNotificationCenter {
+    private static let center = NotificationCenter.default
+    
+    @discardableResult
+    static func addObserver<N: NotificationPayload> (
+        name: Notification.Name,
+        forType type: N.Type,
+        queue: OperationQueue? = .current,
+        then callback: @escaping (N?) -> Void
+    ) -> NSObjectProtocol {
+        
+        center.addObserver(name: name, forType: type, queue: queue, then: callback)
+    }
+    
+    @discardableResult
+    static func addObserver(
+        name: Notification.Name,
+        queue: OperationQueue? = .current,
+        then callback: @escaping (Notification) -> Void
+    ) -> NSObjectProtocol {
+        
+        center.addObserver(name: name, queue: queue, then: callback)
+    }
+    
+    static func post(name: Notification.Name, payload: NotificationPayload?) {
+        center.post(name: name, payload: payload)
     }
 }

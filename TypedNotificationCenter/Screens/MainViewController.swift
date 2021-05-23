@@ -80,7 +80,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func goNext() {
-        NotificationCenter.default.post(
+        TypedNotificationCenter.post(
             name: .achievementNotification,
             payload: AchievementNotificationPayload(achievement: .becameLordCommander)
         )
