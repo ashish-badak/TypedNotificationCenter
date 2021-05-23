@@ -10,23 +10,3 @@ import Foundation
 protocol NotificationManager {
     func addObservers()
 }
-
-final class MainViewNotificationManager: NotificationManager {
-    var whenTheLongNightArrives: ((Notification?) -> Void)?
-    var whenAchieves: ((AchievementNotificationPayload) -> Void)?
-    
-    func addObservers() {
-        NotificationCenter.default.addObserver(name: .theLongNightNotification, forType: Notification.self) {
-            [weak self] notificationPayload in
-            self?.whenTheLongNightArrives?(notificationPayload)
-        }
-        
-        NotificationCenter.default.addObserver(name: .achievementNotification, forType: AchievementNotificationPayload.self) {
-            [weak self] achievement in
-            
-            if let achievement = achievement {
-                self?.whenAchieves?(achievement)
-            }
-        }
-    }
-}

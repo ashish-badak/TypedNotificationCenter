@@ -19,6 +19,7 @@
 		1EB7DB32265518860056E109 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7DB31265518860056E109 /* ThirdViewController.swift */; };
 		1EB7DB35265518B30056E109 /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7DB34265518B30056E109 /* NotificationCenterExtension.swift */; };
 		757A41F9265A64AB00BE121D /* AchievementNotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A41F8265A64AB00BE121D /* AchievementNotificationPayload.swift */; };
+		757A41FB265A651500BE121D /* MainViewNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A41FA265A651500BE121D /* MainViewNotificationManager.swift */; };
 		7598A4A7265A4898008126F2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598A4A6265A4898008126F2 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		1EB7DB31265518860056E109 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		1EB7DB34265518B30056E109 /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		757A41F8265A64AB00BE121D /* AchievementNotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementNotificationPayload.swift; sourceTree = "<group>"; };
+		757A41FA265A651500BE121D /* MainViewNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewNotificationManager.swift; sourceTree = "<group>"; };
 		7598A4A6265A4898008126F2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				757A41F8265A64AB00BE121D /* AchievementNotificationPayload.swift */,
+				757A41FA265A651500BE121D /* MainViewNotificationManager.swift */,
 			);
 			path = NotificationCenterData;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				1EB7DB32265518860056E109 /* ThirdViewController.swift in Sources */,
 				1E63C4B32655213200A1F2DE /* CustomNotificationNames.swift in Sources */,
 				1EB7DB182655167F0056E109 /* MainViewController.swift in Sources */,
+				757A41FB265A651500BE121D /* MainViewNotificationManager.swift in Sources */,
 				1EB7DB142655167E0056E109 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
