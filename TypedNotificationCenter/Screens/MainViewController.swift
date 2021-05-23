@@ -8,7 +8,13 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    private var label: UILabel = {
+    private var achievementLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.textColor = .black
+        return label
+    }()
+    
+    private var responseLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textColor = .black
         return label
@@ -32,7 +38,8 @@ class MainViewController: UIViewController {
         title = "Winterfell"
         view.backgroundColor = .white
         
-        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(achievementLabel)
+        stackView.addArrangedSubview(responseLabel)
         stackView.addArrangedSubview(nextButton)
         view.addSubview(stackView)
         
@@ -41,7 +48,7 @@ class MainViewController: UIViewController {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
-        label.text = "You Know Nothing"
+        responseLabel.text = "You Know Nothing"
         nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
         setupObserver()
     }
@@ -50,12 +57,21 @@ class MainViewController: UIViewController {
         notificationManager.addObservers()
         notificationManager.whenTheLongNightArrives = { [weak self] (payload) in
             self?.view.backgroundColor = .black
-            self?.label.text = "I Do Know Some Things!"
-            self?.label.textColor = .white
+            self?.achievementLabel.textColor = .white
+            self?.responseLabel.textColor = .white
+        }
+        
+        notificationManager.whenAchieves = { [weak self] achievementPayload in
+            self?.achievementLabel.text = achievementPayload.achievement.brag
         }
     }
     
     @objc func goNext() {
+        NotificationCenter.default.post(
+            name: .achievementNotification,
+            payload: AchievementNotificationPayload(achievement: .becameLordCommander)
+        )
+        
         self.navigationController?.pushViewController(FirstViewController(), animated: true)
     }
 }

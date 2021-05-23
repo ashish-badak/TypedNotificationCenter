@@ -35,6 +35,11 @@ class SecondViewController: UIViewController {
     }
     
     @objc func goNext() {
+        NotificationCenter.default.post(
+            name: .achievementNotification,
+            payload: AchievementNotificationPayload(achievement: .killedDany)
+        )
+        
         self.navigationController?.pushViewController(ThirdViewController(), animated: true)
     }
 }
