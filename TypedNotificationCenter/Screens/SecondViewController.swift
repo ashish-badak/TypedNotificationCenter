@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+final class SecondViewController: UIViewController {
     let nextButton = UIButton.getButton(title: "Kill Dany")
     
     override func viewDidLoad() {

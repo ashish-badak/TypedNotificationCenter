@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+final class ThirdViewController: UIViewController {
     let changeThemeButton = UIButton.getButton(title: "Explore The Long Night")
     
     private var responseLabel: UILabel = {
