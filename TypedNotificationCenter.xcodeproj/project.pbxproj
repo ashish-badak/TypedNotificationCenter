@@ -72,8 +72,8 @@
 		1EB7DB122655167E0056E109 /* TypedNotificationCenter */ = {
 			isa = PBXGroup;
 			children = (
-				757A41F5265A647700BE121D /* NotificationCenterData */,
 				1EB7DB38265519C40056E109 /* NotificationCenter */,
+				757A41F5265A647700BE121D /* NotificationCenterData */,
 				1EB7DB37265519B30056E109 /* Screens */,
 				1EB7DB132655167E0056E109 /* AppDelegate.swift */,
 				1EB7DB1C265516830056E109 /* Assets.xcassets */,
