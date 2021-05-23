@@ -8,7 +8,7 @@
 import UIKit
 
 final class FirstViewController: UIViewController {
-    let nextButton = UIButton.getButton(title: "Fight The Great War")
+    private let nextButton = UIButton.getButton(title: "Fight The Great War")
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ final class FirstViewController: UIViewController {
         nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(nextButton)
         NSLayoutConstraint.activate([
@@ -28,7 +28,7 @@ final class FirstViewController: UIViewController {
         ])
     }
     
-    func setupObservers() {
+    private func setupObservers() {
         TypedNotificationCenter.addObserver(name: .theLongNightNotification) { [weak self] _ in
             UIView.animate(withDuration: 0.25) {
                 self?.view.backgroundColor = .black
@@ -36,7 +36,7 @@ final class FirstViewController: UIViewController {
         }
     }
     
-    @objc func goNext() {
+    @objc private func goNext() {
         TypedNotificationCenter.post(
             name: .achievementNotification,
             payload: AchievementNotificationPayload(achievement: .faughtAtTheGreatWar)

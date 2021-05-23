@@ -20,8 +20,8 @@ final class MainViewController: UIViewController {
         return label
     }()
     
-    let nextButton = UIButton.getButton(title: "Be The Lord Commander")
-    let resetButton = UIButton.getButton(title: "Start the Game Of Thrones again")
+    private let nextButton = UIButton.getButton(title: "Be The Lord Commander")
+    private let resetButton = UIButton.getButton(title: "Start the Game Of Thrones again")
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -32,7 +32,7 @@ final class MainViewController: UIViewController {
         return stackView
     }()
     
-    let notificationManager = MainViewNotificationManager()
+    private let notificationManager = MainViewNotificationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ final class MainViewController: UIViewController {
         setupObserver()
     }
     
-    func setupObserver() {
+    private func setupObserver() {
         notificationManager.addObservers()
         notificationManager.whenTheLongNightArrives = { [weak self] (payload) in
             guard let self = self else {
@@ -79,7 +79,7 @@ final class MainViewController: UIViewController {
         }
     }
     
-    @objc func goNext() {
+    @objc private func goNext() {
         TypedNotificationCenter.post(
             name: .achievementNotification,
             payload: AchievementNotificationPayload(achievement: .becameLordCommander)
@@ -88,7 +88,7 @@ final class MainViewController: UIViewController {
         self.navigationController?.pushViewController(FirstViewController(), animated: true)
     }
     
-    @objc func reset() {
+    @objc private func reset() {
         UIView.animate(withDuration: 0.25) {
             self.view.backgroundColor = .white
             self.achievementLabel.textColor = .black
