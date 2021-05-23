@@ -8,7 +8,7 @@
 import Foundation
 
 extension NotificationCenter {
-    func addObserver<N: NotificationPayload> (
+    @discardableResult func addObserver<N: NotificationPayload> (
         descriptor: NotificationDescriptor<N>,
         then callback: @escaping (N?) -> Void
     ) -> NSObjectProtocol {
