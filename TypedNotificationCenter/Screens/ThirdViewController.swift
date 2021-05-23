@@ -10,6 +10,21 @@ import UIKit
 class ThirdViewController: UIViewController {
     let changeThemeButton = UIButton.getButton(title: "Explore The Long Night")
     
+    private var responseLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.textColor = .white
+        label.text = "The Night is Dark & Full of Terrors..."
+        return label
+    }()
+    
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.alignment = .center
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +36,13 @@ class ThirdViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(changeThemeButton)
+        stackView.addArrangedSubview(changeThemeButton)
+        stackView.addArrangedSubview(responseLabel)
+        view.addSubview(stackView)
+        
         NSLayoutConstraint.activate([
-            changeThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            changeThemeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
@@ -33,7 +51,10 @@ class ThirdViewController: UIViewController {
             name: .theLongNightNotification,
             forType: LongNightNotificationPayload.self
         ) { [weak self] (notificationPayload) in
-            self?.view.backgroundColor = .black
+            guard let self = self else { return }
+            
+            self.view.backgroundColor = .black
+            self.changeThemeButton.isHidden = true
         }
     }
     
