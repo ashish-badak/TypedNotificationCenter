@@ -53,7 +53,9 @@ class ThirdViewController: UIViewController {
         ) { [weak self] _ in
             guard let self = self else { return }
             
-            self.view.backgroundColor = .black
+            UIView.animate(withDuration: 0.25) {
+                self.view.backgroundColor = .black
+            }
             self.changeThemeButton.isHidden = true
         }
     }
