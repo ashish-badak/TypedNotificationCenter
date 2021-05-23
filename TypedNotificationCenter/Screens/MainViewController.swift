@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     }()
     
     let nextButton = UIButton.getButton(title: "Be The Lord Commander")
+    let resetButton = UIButton.getButton(title: "Start the Game Of Thrones again")
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -41,6 +42,7 @@ class MainViewController: UIViewController {
         stackView.addArrangedSubview(achievementLabel)
         stackView.addArrangedSubview(responseLabel)
         stackView.addArrangedSubview(nextButton)
+        stackView.addArrangedSubview(resetButton)
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -50,15 +52,23 @@ class MainViewController: UIViewController {
         
         responseLabel.text = "You Know Nothing"
         nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(reset), for: .touchUpInside)
+        resetButton.isHidden = true
         setupObserver()
     }
     
     func setupObserver() {
         notificationManager.addObservers()
         notificationManager.whenTheLongNightArrives = { [weak self] (payload) in
-            self?.view.backgroundColor = .black
-            self?.achievementLabel.textColor = .white
-            self?.responseLabel.textColor = .white
+            guard let self = self else {
+                return
+            }
+            
+            self.view.backgroundColor = .black
+            self.achievementLabel.textColor = .white
+            self.responseLabel.textColor = .white
+            self.nextButton.isHidden = true
+            self.resetButton.isHidden = false
         }
         
         notificationManager.whenAchieves = { [weak self] achievementPayload in
@@ -73,5 +83,14 @@ class MainViewController: UIViewController {
         )
         
         self.navigationController?.pushViewController(FirstViewController(), animated: true)
+    }
+    
+    @objc func reset() {
+        self.view.backgroundColor = .white
+        self.achievementLabel.textColor = .black
+        self.responseLabel.textColor = .black
+        self.nextButton.isHidden = false
+        self.resetButton.isHidden = true
+        self.achievementLabel.text = ""
     }
 }
