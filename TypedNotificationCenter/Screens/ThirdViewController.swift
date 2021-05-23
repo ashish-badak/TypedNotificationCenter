@@ -8,12 +8,12 @@
 import UIKit
 
 final class ThirdViewController: UIViewController {
-    private let changeThemeButton = UIButton.getButton(title: "Explore The Long Night")
+    private let changeThemeButton = UIButton.getButton(title: Constants.ButtonTitles.exploreNight)
     
     private var responseLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textColor = .white
-        label.text = "The Night is Dark & Full of Terrors..."
+        label.text = Constants.Quotes.night
         return label
     }()
     
@@ -28,7 +28,7 @@ final class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Beyond The Wall"
+        title = Constants.ScreenTitles.realNorth
         setupUI()
         setupObservers()
         changeThemeButton.addTarget(self, action: #selector(changeTheme), for: .touchUpInside)

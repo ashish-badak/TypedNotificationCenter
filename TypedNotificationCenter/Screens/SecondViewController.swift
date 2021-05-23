@@ -8,11 +8,11 @@
 import UIKit
 
 final class SecondViewController: UIViewController {
-    private let nextButton = UIButton.getButton(title: "Kill Dany")
+    private let nextButton = UIButton.getButton(title: Constants.ButtonTitles.killDany)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Kings Landing"
+        title = Constants.ScreenTitles.capital
         setupUI()
         setupObservers()
         

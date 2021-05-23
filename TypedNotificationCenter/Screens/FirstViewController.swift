@@ -8,11 +8,11 @@
 import UIKit
 
 final class FirstViewController: UIViewController {
-    private let nextButton = UIButton.getButton(title: "Fight The Great War")
+    private let nextButton = UIButton.getButton(title: Constants.ButtonTitles.fightWar)
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "The Wall"
+        title = Constants.ScreenTitles.wall
         setupUI()
         setupObservers()
         
