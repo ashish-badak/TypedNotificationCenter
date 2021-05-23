@@ -33,7 +33,9 @@ class FirstViewController: UIViewController {
     func setupObservers() {
         notificationManager.addObservers()
         notificationManager.whenTheLongNightArrives = { [weak self] (payload) in
-            self?.view.backgroundColor = .black
+            UIView.animate(withDuration: 0.25) {
+                self?.view.backgroundColor = .black
+            }
         }
     }
     

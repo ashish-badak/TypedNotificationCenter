@@ -30,8 +30,11 @@ class SecondViewController: UIViewController {
     
     func setupObservers() {
         NotificationCenter.default.addObserver(name: .theLongNightNotification) { [weak self] _ in
-            self?.view.backgroundColor = .black
+            UIView.animate(withDuration: 0.25) {
+                self?.view.backgroundColor = .black
+            }
         }
+        
     }
     
     @objc func goNext() {

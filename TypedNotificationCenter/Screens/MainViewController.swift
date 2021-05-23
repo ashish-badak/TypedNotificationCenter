@@ -64,9 +64,12 @@ class MainViewController: UIViewController {
                 return
             }
             
-            self.view.backgroundColor = .black
-            self.achievementLabel.textColor = .white
-            self.responseLabel.textColor = .white
+            UIView.animate(withDuration: 0.25) {
+                self.view.backgroundColor = .black
+                self.achievementLabel.textColor = .white
+                self.responseLabel.textColor = .white
+            }
+            
             self.nextButton.isHidden = true
             self.resetButton.isHidden = false
         }
@@ -86,9 +89,12 @@ class MainViewController: UIViewController {
     }
     
     @objc func reset() {
-        self.view.backgroundColor = .white
-        self.achievementLabel.textColor = .black
-        self.responseLabel.textColor = .black
+        UIView.animate(withDuration: 0.25) {
+            self.view.backgroundColor = .white
+            self.achievementLabel.textColor = .black
+            self.responseLabel.textColor = .black
+        }
+        
         self.nextButton.isHidden = false
         self.resetButton.isHidden = true
         self.achievementLabel.text = ""
