@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// - NOTE: This class depicts an extra step of code separation. Using this kind of structure we can completely free our controller classes or view models from duty of notification implementation. Controller / View models will only have to perform tasks on closures.
 final class MainViewNotificationManager: NotificationManager {
     var whenTheLongNightArrives: ((Notification?) -> Void)?
     var whenAchieves: ((AchievementNotificationPayload) -> Void)?
