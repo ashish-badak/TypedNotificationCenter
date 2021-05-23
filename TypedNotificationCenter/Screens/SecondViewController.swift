@@ -29,7 +29,7 @@ class SecondViewController: UIViewController {
     }
     
     func setupObservers() {
-        let themeChangeObserver = NotificationCenter.default.addObserver(
+        NotificationCenter.default.addObserver(
             descriptor: NotificationDescriptor<Notification>(name: .theLongNightNotification)
         ) { [weak self] (notificationPayload) in
             self?.view.backgroundColor = .black
