@@ -20,8 +20,8 @@ final class MainViewController: UIViewController {
         return label
     }()
     
-    private let nextButton = UIButton.getButton(title: "Be The Lord Commander")
-    private let resetButton = UIButton.getButton(title: "Start the Game Of Thrones again")
+    private let nextButton = UIButton.getButton(title: Constants.ButtonTitles.lordCommander)
+    private let resetButton = UIButton.getButton(title: Constants.ButtonTitles.reset)
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -36,7 +36,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Winterfell"
+        title = Constants.ScreenTitles.home
         view.backgroundColor = .white
         
         stackView.addArrangedSubview(achievementLabel)
