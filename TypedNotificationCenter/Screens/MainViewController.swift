@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     private var achievementLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textColor = .black
